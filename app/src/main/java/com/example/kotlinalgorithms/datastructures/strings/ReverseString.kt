@@ -5,21 +5,31 @@ Invertir a string example "Hello" to "olleH" with extension function
  */
 fun main() {
     val greeting = "Hello"
-    println(greeting.revString())
-    println(greeting.reversedCustom())
-
+//    println(greeting)
+//    println("Reverse string: ${greeting.revString()}")
+//    println(greeting.reversedCustom())
+    println("Ingresa tu nombre:")
+    val name = readLine()
+    println("Ingresa tu edad: $name")
+    val age = readLine()!!.toInt()
+    age?.let {
+        if (age > 18) {
+            println("Wow ya eres mayor!")
+        } else {
+            println("No eres mayor!")
+        }
+    }
 }
 
-fun String.revString() : String{
+fun String.revString(): String {
     var stringReversed = ""
-    for(i in this.length - 1 downTo 0){
+    for (i in this.length - 1 downTo 0) {
         val char = this[i]
         stringReversed += if (i == this.length - 1) {
             char.uppercaseChar()
         } else {
             char.lowercaseChar()
         }
-        //stringReversed += this[i]
     }
     return stringReversed
 }
