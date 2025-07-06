@@ -5,6 +5,8 @@ Invertir a string example "Hello" to "olleH" with extension function
  */
 fun main() {
     val greeting = "Hello"
+    println(greeting.reversed())
+    println(greeting.myStringReversed())
 //    println(greeting)
 //    println("Reverse string: ${greeting.revString()}")
 //    println(greeting.reversedCustom())
@@ -19,6 +21,14 @@ fun main() {
             println("No eres mayor!")
         }
     }
+}
+
+fun String.myStringReversed(): String{
+    var stringReversed = ""
+    for( i in this.length -1 downTo 0){
+        stringReversed += this[i]
+    }
+    return stringReversed
 }
 
 fun String.revString(): String {
