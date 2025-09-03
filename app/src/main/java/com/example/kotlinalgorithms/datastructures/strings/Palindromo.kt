@@ -5,7 +5,7 @@ fun main() {
     println("Ingresa una palabra o frase:")
     var dataString = readLine()!!.lowercase().replace(" ", "")
 
-    if (dataString.polindromo()) {
+    if (dataString.isPalindrome()) {
         println("Es palindromo")
     } else {
         println("No es palindromo")
@@ -24,8 +24,8 @@ fun String.polindromo() :Boolean{
     return igual
 }
 
-fun String.isPalindrome(input: String): Boolean {
-    val cleaned = input.lowercase().replace(" ", "")
+fun String.isPalindrome(): Boolean {
+    val cleaned = this.lowercase().replace(" ", "")
     val len = cleaned.length
     for (i in 0 until len / 2) {
         if (cleaned[i] != cleaned[len - 1 - i]) return false
