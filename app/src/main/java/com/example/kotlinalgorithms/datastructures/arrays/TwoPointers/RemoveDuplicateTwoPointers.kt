@@ -14,5 +14,14 @@ Salida: 2, con los primeros elementos [1,2,_].
  */
 
 fun main() {
+    val nums = intArrayOf(1,1,2)
+    var initial = 1
+    for (currentNum in 1 until nums.size){
+        if(nums[currentNum] != nums[initial - 1]){
+            nums[initial] = nums[currentNum]
+            initial++
+        }
+    }
 
+    println(initial)
 }

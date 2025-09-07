@@ -39,7 +39,7 @@ fun removeDuplicates(nums: IntArray): Int {
 
     for (j in 1 until nums.size) { //desde elemento 1 hasta el ultimo del array
         if (nums[j] != nums[i - 1]) { // si el número actual es diferente al número anterior (quiere decir que es unico)
-            nums[i] = nums[j] // guardamos el número único
+            nums[i] = nums[j] // guardamos el número único asignamos el valor al numero anterior con el current
             i++ // incrementamos la cantidad de numeros unicos
         }
     }
