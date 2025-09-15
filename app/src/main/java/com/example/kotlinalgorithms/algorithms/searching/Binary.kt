@@ -36,3 +36,17 @@ fun main() {
     }
 
 }
+
+fun binarySearch(numbers: List<Int>, target: Int): Boolean { //1,3,4,5,6  ,  5
+    var low = 0
+    var high = numbers.size - 1 //4
+    while (low <= high) {
+        val mid = (low + high) / 2 //2
+        when {
+            numbers[mid] == target -> return true
+            numbers[mid] < target -> low = mid + 1
+            else -> high = mid - 1
+        }
+    }
+    return false
+}
