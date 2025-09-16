@@ -9,6 +9,7 @@ fun main() {
  //* EXAMPLE -> [0,1,0,3,12] -> [1,3,12,0,0]
 
     moveZeroes(nums)
+    moveZeroesSwap(nums)
 
 }
 fun moveZeroes(nums: IntArray): Unit{
@@ -23,6 +24,19 @@ fun moveZeroes(nums: IntArray): Unit{
     //Now we will put the others in 0
     for(j in k until nums.size){
         nums[j] = 0
+    }
+    println(nums.contentToString())
+}
+fun moveZeroesSwap(nums: IntArray){
+    var k = 0 // next position for non-zero
+    for (i in nums.indices) {
+        if (nums[i] != 0) {
+            // swap nums[i] with nums[k]
+            val temp = nums[i]
+            nums[i] = nums[k]
+            nums[k] = temp
+            k++
+        }
     }
     println(nums.contentToString())
 }
