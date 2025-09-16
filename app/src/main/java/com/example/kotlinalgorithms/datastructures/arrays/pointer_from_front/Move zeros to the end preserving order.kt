@@ -12,5 +12,17 @@ fun main() {
 
 }
 fun moveZeroes(nums: IntArray): Unit{
-
+    // 0 1 2 3
+    var k = 0
+    for(i in 0 until nums.size){
+        if(nums[i] != 0){
+            nums[k] = nums[i]
+            k++
+        }
+    } // We move the element that matters
+    //Now we will put the others in 0
+    for(j in k until nums.size){
+        nums[j] = 0
+    }
+    println(nums.contentToString())
 }
