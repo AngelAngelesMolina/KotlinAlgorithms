@@ -1,5 +1,7 @@
 package com.example.kotlinalgorithms.problems.hackerrank
 
+import android.R
+
 //!!TimeSlotTaskPairing
 
 /*
@@ -23,10 +25,22 @@ Starting with index 0 (2), we need 7 (9-2). At index 1, duration is 7. Thus indi
 
  */
 
+fun dingTaskPair(taskDurations: Array<Int>, slotLength: Int) : Array<Int>{
+    var mapDuration = mutableMapOf<Int, Int>()
+    for(duration in taskDurations.indices){
+        val complement = slotLength - taskDurations[duration] // I have the complement to get the slot
+        if(complement in mapDuration.keys){
+            return arrayOf(mapDuration[complement]!!, duration)
+        }
+        mapDuration[taskDurations[duration]] = duration //
+    }
 
+
+    return arrayOf(-1, -1)
+}
 fun findTaskPairForSlot(taskDurations: Array<Int>, slotLength: Int): Array<Int> {
     val seen = mutableMapOf<Int, Int>() // value -> index
-    for ((i, duration) in taskDurations.withIndex()) {// key , value
+    for ((i, duration) in taskDurations.withIndex()) {// key , value KEY is index duration is THE value of the array in the current index
         val complement = slotLength - duration
         if (seen.containsKey(complement)) {
             return arrayOf(seen[complement]!!, i)
@@ -36,17 +50,6 @@ fun findTaskPairForSlot(taskDurations: Array<Int>, slotLength: Int): Array<Int> 
     }
 
     return arrayOf(-1, -1)
-    /*
-    if(taskDurations.size < 2)   return intArrayOf(-1,-1).toTypedArray()
-    for(i in 0 until taskDurations.size - 1){
-        if(taskDurations[i] + taskDurations[i+1] == slotLength){
-            return intArrayOf(i, i+1).toTypedArray()
-        }
-    }
-
-
-    return intArrayOf(-1,-1).toTypedArray()
-*/
 }
 
 fun main(args: Array<String>) {
@@ -61,6 +64,7 @@ fun main(args: Array<String>) {
     val slotLength = readLine()!!.trim().toInt()
 
     val result = findTaskPairForSlot(taskDurations, slotLength)
+    //val result = dingTaskPair(taskDurations, slotLength)
 
     println(result.joinToString("\n"))
 }
