@@ -1,6 +1,5 @@
 package com.example.kotlinalgorithms.problems.hackerrank
 
-import android.R
 
 //!!TimeSlotTaskPairing
 

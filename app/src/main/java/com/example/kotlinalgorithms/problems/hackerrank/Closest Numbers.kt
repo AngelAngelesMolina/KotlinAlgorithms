@@ -73,15 +73,6 @@ fun closestNumbers(arr: Array<Int>): Array<Int> {
 }
 
 fun sortedArray(ar : Array<Int>) : Array<Int>{
-    /*for(i in 0 until ar.size - 1){
-        if(ar[i] > ar[i+1]){ // current is greater than next position val
-            //We´ll order with swap
-            val aux = ar[i+1]
-            ar[i+1] = ar[i]
-            ar[i] = aux
-        }
-    }
-    return ar*/
     var swapped: Boolean
     do {
         swapped = false
